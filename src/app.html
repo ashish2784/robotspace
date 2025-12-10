@@ -1,0 +1,1312 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Robotspace – Simplified Manufacturing Automation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Optional Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    %sveltekit.head%
+
+
+  <style>
+    :root {
+      --bg: #070816;
+      --bg-alt: #0c0e1f;
+      --bg-light: #f5f5f7;
+      --card: #101325;
+      --text-main: #ffffff;
+      --text-muted: #b7b9d6;
+      --accent: #ff8b3d;
+      --accent-soft: rgba(255, 139, 61, 0.13);
+      --border-soft: rgba(255, 255, 255, 0.08);
+      --radius-lg: 18px;
+      --radius-xl: 24px;
+      --shadow-soft: 0 28px 80px rgba(0, 0, 0, 0.6);
+      --max-width: 1200px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at top, #171a35 0, #02030a 45%, #000 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .wrapper {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header / Nav */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      -webkit-backdrop-filter: blur(18px);
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(6, 7, 20, 0.95), rgba(6, 7, 20, 0.7), transparent);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo{
+	  width: 140px;
+	  height: auto;
+	}
+
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-weight: 500;
+      font-size: 0.78rem;
+    }
+
+    .nav-links a.nav-primary {
+      color: var(--text-main);
+    }
+
+    .pill {
+      border-radius: 999px;
+      padding: 8px 18px;
+      border: 1px solid var(--border-soft);
+      background: rgba(10, 12, 30, 0.9);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 22px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-muted);
+      border: 1px solid var(--border-soft);
+    }
+
+    .btn-accent {
+      background: var(--accent);
+      color: #1c1209;
+      box-shadow: 0 16px 40px rgba(255, 139, 61, 0.55);
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+	  color: orangered;
+    }
+
+    .mobile-menu {
+      display: none;
+    }
+
+    /* Hero */
+
+    .hero {
+      padding: 72px 0 80px;
+    }
+
+	.hero {
+  position: relative;
+  padding: 72px 0 80px;
+  background-image:
+    url('/images/hero.avif'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+}
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 48px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.28em;
+      font-size: 0.78rem;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+
+    .hero-title {
+      font-size: clamp(3rem, 4vw, 4rem);
+      font-weight: 1000;
+      line-height: 1.2;
+      margin-bottom: 18px;
+    }
+
+    .hero-subtitle {
+      color: var(--text-muted);
+      font-size: 1.2rem;
+      max-width: 520px;
+      margin-bottom: 26px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 32px;
+    }
+
+    .hero-metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+    }
+
+.metric {
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(10, 12, 30, 0.85);
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.metric strong {
+  font-size: 1.3rem;
+  color: var(--accent);
+}
+
+    .hero-visual {
+      position: relative;
+    }
+
+	.metric strong {
+		color: orangered
+	}
+
+
+
+    .hero-robot {
+      margin-top: 8px;
+      border-radius: 18px;
+      background: radial-gradient(circle at top, #ffffff 0, #d8d9e4 40%, #a8abbc 70%, #505471 100%);
+      height: 260px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-robot::before {
+      content: "";
+      position: absolute;
+      inset: 40px 40px 120px;
+      border-radius: 22px;
+      background: linear-gradient(145deg, #f6f7fa, #eff0f9);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+    }
+
+    .hero-robot::after {
+      content: "";
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 20px solid #111425;
+      bottom: -60px;
+      right: 60px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.85);
+    }
+
+    .hero-tag-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .hero-tag-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      font-size: 0.74rem;
+      color: var(--text-muted);
+    }
+
+    .hero-tag-pill span {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: #27e38b;
+      box-shadow: 0 0 14px rgba(39, 227, 139, 0.9);
+    }
+
+    /* Trusted */
+
+    .section {
+      padding: 40px 0 60px;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      margin-bottom: 6px;
+    }
+
+    .section-subtitle {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    .trusted-logos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      justify-content: center;
+    }
+
+    .trusted-logo {
+      width: 120px;
+      height: 50px;
+      border-radius: 999px;
+      background: rgba(7, 9, 27, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+  .trusted-logo img{
+    object-fit: contain;
+  }
+
+    /* Vision / Stats */
+
+    .two-column {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 36px;
+      align-items: flex-start;
+    }
+
+    .vision-text p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 10px;
+    }
+
+    .pill-label {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 5px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border-soft);
+      background: rgba(6, 10, 28, 0.9);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+    }
+
+    .vision-stats {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .vision-stat {
+      padding: 14px 16px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      background: rgba(7, 9, 25, 0.9);
+      font-size: 0.9rem;
+    }
+
+    .vision-stat strong {
+      display: block;
+      color: var(--accent);
+      font-size: 1.2rem;
+      margin-bottom: 4px;
+    }
+
+    /* Products */
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .product-card {
+      background: rgba(7, 9, 25, 0.96);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-soft);
+      padding: 22px 22px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-tag {
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-size: 0.76rem;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .product-name {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .product-subtitle {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .product-body {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+    }
+
+    .product-metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .product-metric-pill {
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      font-size: 0.78rem;
+      color: var(--accent);
+      border: 1px solid rgba(255, 139, 61, 0.5);
+    }
+
+    .product-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .product-thumbnail {
+      position: absolute;
+      right: -40px;
+      bottom: -40px;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 20% 0, #ffffff, #b4b9d6, #4c5278);
+      opacity: 0.18;
+    }
+
+    /* Process */
+
+    .process-card {
+      background: rgba(7, 9, 25, 0.96);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-soft);
+      padding: 26px 24px;
+      display: grid;
+      gap: 18px;
+    }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    .process-step-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 4px;
+    }
+
+    /* Team */
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .team-card {
+      background: rgba(7, 9, 25, 0.96);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-soft);
+      padding: 18px 18px 20px;
+      text-align: left;
+    }
+
+    .avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: none;
+  margin-bottom: 12px;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+    .team-name {
+      font-weight: 600;
+      font-size: 0.98rem;
+      margin-bottom: 2px;
+    }
+
+    .team-role {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.7rem;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .team-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Careers */
+
+    .careers-card {
+      background: rgba(7, 9, 25, 0.96);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-soft);
+      padding: 22px 20px 24px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr);
+      gap: 22px;
+      align-items: center;
+    }
+
+    .careers-card p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      background: rgba(13, 18, 40, 0.95);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 1999px;
+      background: #45dd7a;
+    }
+
+	.photo { 
+		display:flex; 
+		gap:16px; 
+		justify-content:center; 
+		align-items:flex-start; 
+		flex-wrap:wrap; 
+	}
+
+	.photo img {
+  width: 30%;
+  min-width: 200px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  animation:cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}	
+		
+	
+
+    /* Contact & Footer */
+
+	.form { 
+  max-width: 560px; 
+  margin: 18px auto 0; 
+  display: grid; 
+  gap: 10px;
+  padding: 32px;
+  background: linear-gradient(135deg, rgba(249, 248, 248, 0.949) 0%, rgba(238, 240, 242, 0.97) 100%);
+  border-radius: 16px;
+}
+
+.form h2 {
+  text-align: center;          
+  color: black;
+  margin-bottom: 12px;
+}
+
+.form p {
+  color: #333;
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+.input { 
+  padding: 12px 14px; 
+  border-radius: 10px; 
+  border: 1px solid rgba(255,69,0,0.2); 
+  background: #fff;
+  color: #000;
+  font-size: 1rem;
+}
+
+.input::placeholder {
+  color: #666;
+}
+
+.input:focus { 
+  outline: 2px solid white;
+  border-color: orangered;
+}
+
+textarea.input {
+  resize: vertical;
+  font-family: inherit;
+}
+
+	#socials .section-header { display:flex; flex-direction:column; align-items:flex-start; gap:12px; text-align:left; }
+#socials .section-header .section-subtitle { text-align:left; margin:0; max-width:520px; }
+#socials .socials { display:flex; flex-wrap:wrap; gap:12px; justify-content:flex-start; margin-top:14px; }
+#socials .socials .pill { justify-content:flex-start; }
+#socials .socials .location-pill { flex-basis:100%; max-width:100%; }
+
+	.contact-wrap{ background:white; color:var(--white); padding:48px 20px; border-radius:16px; box-shadow:var(--shadow) }
+     .socials{ display:flex; gap:10px; justify-content:center; margin-top:12px; flex-wrap:wrap }
+    .pill{
+      display:inline-flex; gap:10px; align-items:center; text-decoration:wavy; color:var(--primary);
+      padding:10px 14px; border-radius:999px; border:1px solid rgba(255,255,255,0.08); background:rgba(255,255,255,0.03);
+      transition:transform .16s, background .16s;
+    }
+    .pill:hover{ transform:translateY(-5px); background:var(--white); color:var(--primary); box-shadow:0 10px 30px rgba(2,6,23,0.12) }
+
+
+
+    .contact-card {
+      background: rgba(7, 9, 25, 0.96);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-soft);
+      padding: 22px 22px 24px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .contact-row {
+      margin-top: 12px;
+      display: grid;
+      gap: 6px;
+    }
+
+    .contact-label {
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+    }
+
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 18px 0 26px;
+      margin-top: 32px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.7rem;
+	  color: var(--white);
+    }
+
+	.section-visual{
+		text-align:center;
+		height: auto;
+		width: 200px;
+
+	}
+
+	.section {
+  padding: 40px 0 60px;
+  position: relative;
+}
+
+#socials.section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 10%;
+  width: 80%;
+  border-top: 1px solid rgba(235, 45, 45, 0.6);
+}
+	
+
+    /* Responsive */
+
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+      }
+
+      .mobile-menu {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        border-radius: 999px;
+        border: 1px solid var(--border-soft);
+        cursor: pointer;
+        font-size: 14px;
+        color: var(--text-muted);
+      }
+
+      .hero-inner,
+      .two-column,
+      .products-grid,
+      .process-steps,
+      .team-grid,
+      .careers-card,
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero {
+        padding-top: 56px;
+      }
+
+      .hero-inner {
+        gap: 32px;
+      }
+
+      .careers-card {
+        gap: 16px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .section {
+        padding: 32px 0 44px;
+      }
+
+      .hero-title {
+        font-size: 2.15rem;
+      }
+
+      .team-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .products-grid {
+        gap: 18px;
+      }
+
+      .trusted-logo {
+        width: 100px;
+      }
+    }
+
+	.contact-wrap{ background:white; color:var(--white); padding:48px 20px; border-radius:16px; box-shadow:var(--shadow) }
+    .contact .socials{ display:flex; gap:10px; justify-content:center; margin-top:12px; flex-wrap:wrap }
+    .pill{
+      display:inline-flex; gap:10px; align-items:center; text-decoration:wavy; color:var(--primary);
+      padding:10px 14px; border-radius:999px; border:1px solid rgba(255,255,255,0.08); background:rgba(255,255,255,0.03);
+      transition:transform .16s, background .16s;
+    }
+    .pill:hover{ transform:translateY(-5px); background:var(--white); color:var(--primary); box-shadow:0 10px 30px rgba(2,6,23,0.12) }
+
+    .form{ max-width:560px; margin:18px auto 0; display:grid; gap:10px }
+    .input{ padding:12px 14px; border-radius:10px; border:1px solid rgba(10,10,10,0.06); background:var(--white); font-size:1rem }
+    .input:focus{ outline:2px solid rgba(230,57,70,0.12) }
+
+	
+  </style>
+</head>
+
+
+
+
+<body>
+	  <div style="display: contents">%sveltekit.body%</div>
+  <header>
+
+    <div class="wrapper nav">
+      <div class="nav-left">
+        <div class="logo">
+			<a href="#"><img src="/images/sonK02g1HhQpYMD96kBANE5hEYY.png" alt="Robotspace Logo" ></a>
+		</div>
+       
+      </div>
+      <nav class="nav-links">
+        <a href="#products" class="nav-primary">Products</a>
+        <a href="#about">About</a>
+        <a href="#careers">we're hiring</a>
+	
+        <div class="nav-cta">
+          <a href="#demo" class="btn btn-accent">Book a demo</a>
+        </div>
+
+      </nav>
+      <button class="mobile-menu">☰</button>
+    </div>
+  </header> 
+  
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero" id="top">
+      <div class="wrapper hero-inner">
+        <div>
+          <div class="eyebrow">Industrial robotics &amp; software</div>
+          <h1 class="hero-title">Simplify your Manufacturing</h1>
+          <p class="hero-subtitle">
+            Discover Reliable, Cost-Effective, and Fully Integrated Robotic Automation, Advanced Monitoring, Planning, MES, and IIoT Solutions for All Kinds of Factory.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#products" class="btn btn-accent">Explore products</a>
+            <a href="#about" class="btn btn-ghost">Learn more</a>
+          </div>
+
+          <div class="hero-metrics">
+            <div class="metric">
+              <span>Product families across robotics, automation and IIoT</span>
+            </div>
+            <div class="metric">
+              <span>Building solutions for factories since</span>
+			  <strong>2013</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          
+             
+        </div>
+      </div>
+    </section>
+
+    <!-- Trusted by -->
+    <section class="section">
+      <div class="wrapper">
+        <div class="section-header">
+          <h2 class="section-title">Trusted by manufacturing leaders</h2>
+          <p class="section-subtitle">
+            Robotics, automation and software deployed across plants in automotive, building materials,
+            electronics, and more.
+          </p>
+        </div>
+
+        <div class="trusted-logos">
+          <div class="trusted-logo"><img src="/images/6TqkNbC2bsn982MEgpymuGFM2U.png" alt="Client 1"></div>
+          <div class="trusted-logo"><img src="/images/aomhh5RRErsILtXaiXRo6ID92qI.png" alt="Client 2"></div>
+          <div class="trusted-logo"><img src="/images/axWQrtYmlYf1vZdq2PcjIVAnY0U.png" alt="Client 3"></div>
+          <div class="trusted-logo"><img src="/images/hgADtPAnZfYtKa2KaxlBnX8QVvs.png" alt="Client 4"></div>
+          <div class="trusted-logo"><img src="/images/HTS2KZtUAzAmMkksg6FZZgDf1fM.png" alt="Client 5"></div>
+          <div class="trusted-logo"><img src="/images/mI8qTECrxBNTlGpSFHDaOZGK1SI.png" alt="Client 6"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vision / About -->
+    <section class="section" id="about">
+      <div class="wrapper two-column">
+        <div class="vision-text">
+          <span class="pill-label">Vision</span>
+          <h2 class="section-title" style="text-align:left; margin-bottom:8px;">
+            We simplify factories, end to end
+          </h2>
+          <p>
+            Robotspace is a Hyderabad-grown OEM focused on bringing high-tech robotics and
+            automation to Indian and global manufacturers. Our goal is simple: remove complexity
+            from day-to-day production.
+          </p>
+          <p>
+            From material movement and assembly to planning and performance dashboards, our
+            platform brings machines, people and software into a single connected system.
+          </p>
+          <p>
+            With in-house R&amp;D, manufacturing and local service, we can design, deploy and
+            support automation that fits your shop floor and scales with your business.
+          </p>
+        </div>
+
+        <div class="vision-stats">
+          <div class="vision-stat">
+            <strong>OEM first</strong>
+            Complete in-house design, engineering, manufacturing and lifecycle support.
+          </div>
+          <div class="vision-stat">
+            <strong>Products</strong>
+            Modular robotics, low-cost automation and IIoT hardware/software on a single stack.
+          </div>
+          <div class="vision-stat">
+            <strong>Open integrations</strong>
+            Connect with existing machines, robots, PLCs and IT systems using our platform.
+          </div>
+          <div class="vision-stat">
+            <strong>Local service</strong>
+            On-site deployment, maintenance and repair capabilities across India.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products -->
+    <section class="section" id="products">
+      <div class="wrapper">
+        <div class="section-header">
+          <span class="pill-label">Products</span>
+          <h2 class="section-title">Automation for every corner of the factory</h2>
+          <p class="section-subtitle">
+            A connected portfolio of robots, control hardware and manufacturing software that
+            work together as one system.
+          </p>
+        </div>
+
+        <div class="products-grid">
+          <!-- Legato -->
+          <article class="product-card">
+            <div class="product-tag">Robotic platform</div>
+            <h3 class="product-name">Legato</h3>
+            <p class="product-subtitle">A single platform for line automation</p>
+            <p class="product-body">
+              Configure robotic assembly, inspection, packing, palletizing, pick-and-place and
+              sorting applications using the same software and hardware building blocks.
+            </p>
+            <div class="product-metrics">
+              <div class="product-metric-pill">Up to 50% faster deployment</div>
+              <div class="product-metric-pill">5× ROI vs manual operations</div>
+            </div>
+            <div class="product-footer">
+              <span>Controls · Gantry · Grippers · Pneumatics</span>
+              <span>Learn more →</span>
+            </div>
+            <div class="product-thumbnail"></div>
+          </article>
+
+          <!-- iFactory AI -->
+          <article class="product-card">
+            <div class="product-tag">Manufacturing OS</div>
+            <h3 class="product-name">iFactory&nbsp;AI</h3>
+            <p class="product-subtitle">Run your plant from anywhere</p>
+            <p class="product-body">
+              Real-time visibility, planning and coordination across machines, operators,
+              robots, automation islands, ERP and communication tools in one interface.
+            </p>
+            <div class="product-metrics">
+              <div class="product-metric-pill">5× faster response to issues</div>
+              <div class="product-metric-pill">Up to 30% lower MTTR</div>
+            </div>
+            <div class="product-footer">
+              <span>Monitoring · MES · Scheduling · Quality</span>
+              <span>Learn more →</span>
+            </div>
+            <div class="product-thumbnail"></div>
+          </article>
+
+          <!-- Scoot -->
+          <article class="product-card">
+            <div class="product-tag">Autonomous mobile robots</div>
+            <h3 class="product-name">Scoot</h3>
+            <p class="product-subtitle">Material movement on autopilot</p>
+            <p class="product-body">
+              LIDAR-based SLAM AMRs for pallets, bins and carts. Scoot ties into machines,
+              call buttons and robots to move material safely and reliably across the plant.
+            </p>
+            <div class="product-metrics">
+              <div class="product-metric-pill">100% autonomous operation</div>
+              <div class="product-metric-pill">50&nbsp;kg – 500&nbsp;kg payloads</div>
+            </div>
+            <div class="product-footer">
+              <span>Manufacturing · Pharma · Warehousing</span>
+              <span>Learn more →</span>
+            </div>
+            <div class="product-thumbnail"></div>
+          </article>
+
+          <!-- ioWare -->
+          <article class="product-card">
+            <div class="product-tag">Industrial IoT hardware</div>
+            <h3 class="product-name">ioWare</h3>
+            <p class="product-subtitle">Gateway &amp; smart HMI</p>
+            <p class="product-body">
+              Connect sensors, legacy machines and PLCs to the cloud or iFactory AI with a
+              drop-in gateway and operator-friendly HMI designed for harsh industrial
+              environments.
+            </p>
+            <div class="product-metrics">
+              <div class="product-metric-pill">15+ processes digitised</div>
+              <div class="product-metric-pill">Rapid adoption with smart HMI</div>
+            </div>
+            <div class="product-footer">
+              <span>Modbus · MQTT · Ethernet · Wi-Fi</span>
+              <span>Learn more →</span>
+            </div>
+            <div class="product-thumbnail"></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section class="section">
+      <div class="wrapper">
+        <div class="section-header">
+          <span class="pill-label">Process</span>
+          <h2 class="section-title">A different way to build automation</h2>
+          <p class="section-subtitle">
+            We design solutions around your production flow rather than forcing your plant to fit
+            a rigid template.
+          </p>
+        </div>
+
+        <div class="process-card">
+          <p style="color:var(--text-muted); font-size:0.92rem;">
+            Robotspace combines productized hardware, configurable software and experienced
+            deployment teams. That mix lets us deliver projects quickly while still tailoring
+            each system to the realities of your factory.
+          </p>
+
+          <div class="process-steps">
+            <div>
+              <div class="process-step-title">Discover</div>
+              We walk the line, map processes and identify places where automation and data
+              bring immediate value.
+            </div>
+            <div>
+              <div class="process-step-title">Design &amp; deploy</div>
+              Our engineers configure robots, controls and software, then install and commission
+              the system on site.
+            </div>
+            <div>
+              <div class="process-step-title">Operate &amp; evolve</div>
+              Ongoing monitoring, support and upgrades keep the system tuned as your production
+              mix changes.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+	<center>
+	<img src="/images/xSc4vewz9I6Me4wQDXYEmlE.jpg" alt="Robotspace Automation" style="  width:90%; margin-top:-40px; margin-bottom:40px; border-radius:12px; object-fit:cover; box-shadow:0 10px 30px rgba(2,6,23,0.12)">
+		</center>
+
+    <!-- Team -->
+    <section class="section">
+      <div class="wrapper">
+        <div class="section-header">
+          <span class="pill-label">Team</span>
+          <h2 class="section-title">People behind Robotspace</h2>
+          <p class="section-subtitle">
+            Together, we are more than just a team; we are a collective force dedicated to simplifying manufacturing through robotics and automation. With a shared passion for innovation and a commitment to excellence, we are propelling Robotspace and our customers toward a future where manufacturing is streamlined, efficient, and empowered.
+          </p>
+        </div>
+
+        <div class="team-grid">
+          <article class="team-card">
+            <div class="avatar"><img src="/images/j5tJaL2iZCTkpOiS81e06QAVxRw.png" alt="Roopak Jada"></div>
+            <div class="team-name">Roopak Jada</div>
+            <div class="team-role">Chief Executive Officer</div>
+            <p class="team-desc">
+              Over a decade designing and rolling out robotics, IoT and automation projects
+              across the US, Europe and India, bridging product vision and factory reality.
+            </p>
+          </article>
+
+          <article class="team-card">
+            <div class="avatar"><img src="/images/cr32EpYX1fqP96VC7puQT60mVwM.png" alt="Sai Nithin Krishna Jonnalagadda"></div>
+			<div class="team-name">Sai Nithin Krishna Jonnalagadda</div>
+            <div class="team-role">Chief Operating Officer</div>
+            <p class="team-desc">
+              IIT-M alumnus with a background in large-scale data systems and ERP integrations,
+              driving data-driven operations and continuous improvement.
+            </p>
+          </article>
+
+          <article class="team-card">
+            <div class="avatar"><img src="/images/EnkrwR8PITl0OKf8nzAYtO3ko8.jpg" alt="Rohit Reddy"></div>
+            <div class="team-name">Rohit Reddy</div>
+            <div class="team-role">Chief Business Officer</div>
+            <p class="team-desc">
+              Started as an automation engineer in the US and now focuses on bringing advanced
+              industrial technology to manufacturing customers in India.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Careers -->
+    <section class="section" id="careers">
+    <div class="wrapper">
+        <div class="section-header">
+          <span class="pill-label">Careers</span>
+          <h2 class="section-title">We’re hiring</h2>
+          <p class="section-subtitle">
+            Join a team that is rethinking how factories are designed, run and scaled.
+          </p>
+        </div>
+
+        <div class="careers-card">
+          <div>
+            <p>
+              If you love building things that touch the real world — robots, software, control
+              systems, data tools — Robotspace is a place to do that at scale. We work at the
+              intersection of manufacturing, hardware and cloud.
+            </p>
+            <p>
+              We’re always looking for people who are curious, hands-on and comfortable working
+              close to customers on the shop floor.
+            </p>
+          </div>
+          <div>
+            <div class="badge">
+              <span class="badge-dot"></span>
+              Open roles across engineering, product &amp; operations
+            </div>
+            <p style="margin-top:10px;">
+              Share your profile and interests with us and we’ll get in touch when a matching
+              opportunity opens up.
+            </p>
+            <a href="mailto:info@robotspace.in" class="btn btn-accent" style="margin-top:6px; display:inline-flex;">
+              See open roles
+            </a>
+          </div>
+        </div>
+    </div>
+	<br>
+
+	<div class="photo">
+		<img src="/images/OFoN25NEyVC3p32LubBtJdCglc.png" alt="Robotspace Team" >
+		<img src="/images/omvNToe2rhbApFwUxRmHTl049M.png" alt="issue ">
+		<img src="/images/sjzmUuiZ8xLdyaHD949ggKP3gWE.png" alt="loading..">
+		<img src="/images/rvYty1Uf18i6T8NUCr9w8SCHA.png" alt="...">
+		<img src="/images/MTlvH83IKsTObYcuDYvO1JTeE0.png" alt="..">
+		<img src="/images/0MfU6Io7y5Rfch8cQuTyvxsRIk.png" alt="..">
+	</div>
+    </section>
+	<br>
+
+	<!-- Contact -->
+	<section class="Contact" >
+		<form class="form" action="">
+			<h2>Talk to us!</h2>
+			<p >We'd Love to Hear from You! At Robotspace, we're dedicated to open communication and building strong connections with our community, clients, and partners. Whether you have a question, a partnership proposal, or simply want to learn more about our innovative robotics and automation solutions, we're here to help. Feel free to reach out to us !</p>
+			
+			<input class="input" type="text" placeholder="Your Name" required>
+			<input class="input" type="email" placeholder="Your Email" required>
+			<input class="input" type="text" placeholder="Subject" required>
+			<textarea class="input" rows="5" placeholder="Your Message" required></textarea>
+
+			<button class="btn btn-accent" type="submit" style="margin-top:12px; width:100%; height:100%">Send Message</button>
+		</form>
+	</section>
+
+	<br>
+
+    <section class="section" id="socials">
+      <div class="wrapper">
+        <div class="section-header">
+          <span class="pill-label"></span>
+          <div class="section-visual"><img src="/images/sonK02g1HhQpYMD96kBANE5hEYY.png" alt="Socials"></div>
+          <p class="section-subtitle">
+            With a core mission to streamline manufacturing complexities, Robotspace continues to be a driving force in making the manufacturing process simpler, more efficient, and innovative.
+          </p>
+        </div>
+
+		<div class="socials" style="display:flex;gap:12px;justify-content:left;margin-top:14px">
+			
+			<a class="pill" 
+  			 href="https://www.google.com/maps/place/Hyderabad,+Telangana" 
+   				target="_blank" 
+  			 rel="noopener noreferrer">
+  			<svg xmlns="http://www.w3.org/2000/svg" 
+       		width="20" height="20" viewBox="0 0 24 24" 
+       		fill="none" stroke="orangered" stroke-width="2" 
+       		stroke-linecap="round" stroke-linejoin="round" 
+       			aria-hidden="true">
+    		<path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"/>
+   	 		<circle cx="12" cy="10" r="3"/>
+  			</svg>
+  				Scoobylabs Robotics Pvt. Ltd.
+				Hitech City, Hyderabad, Telangana 500055, India
+			</a>
+
+
+            <a class="pill" href="mailto:info@robotspace.in" target="_blank" rel="noopener noreferrer">
+
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 92.12" width="20" height="20" aria-hidden="true">
+                <style type="text/css">
+                  .st0{fill:#EA4335;}
+                  .st1{fill:#C5221F;}
+                  .st2{fill:orangered;}
+                  .st3{fill:orangered;}
+                  .st4{fill:orangered;}
+                </style>
+                <g>
+                  <path class="st4" d="M8.36,92.12h19.54V44.67L0,23.76v60.08C0,88.42,3.78,92.12,8.36,92.12L8.36,92.12z"/>
+                  <path class="st3" d="M94.97,92.12h19.54c4.67,0,8.36-3.78,8.36-8.36v-60L94.97,44.67V92.12L94.97,92.12z"/>
+                  <path class="st2" d="M94.97,8.4v36.27l27.91-20.91V12.58c0-10.37-11.82-16.25-20.11-10.05L94.97,8.4L94.97,8.4z"/>
+                  <polygon class="st0" points="27.9,44.67 27.9,8.4 61.44,33.57 94.97,8.4 94.97,44.67 61.44,69.76 27.9,44.67"/>
+                  <path class="st1" d="M0,12.58v11.18l27.91,20.91V8.4l-7.8-5.87C11.82-3.66,0,2.29,0,12.58L0,12.58z"/>
+                </g>
+              </svg>
+              Email
+            </a>
+		 	<a class="pill" href="https://www.linkedin.com/company/robotspace" target="_blank" rel="noopener noreferrer">
+         	     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 122.31" width="20" height="20" aria-hidden="true">
+                <defs>
+                  <style>
+                    .cls-1{fill:orangered;fill-rule:evenodd;}
+                    .cls-2{fill:#fff;fill-rule:evenodd;}
+                  </style>
+                </defs>
+                <path class="cls-1" d="M27.75,0H95.13a27.83,27.83,0,0,1,27.75,27.75V94.57a27.83,27.83,0,0,1-27.75,27.74H27.75A27.83,27.83,0,0,1,0,94.57V27.75A27.83,27.83,0,0,1,27.75,0Z"/>
+                <path class="cls-2" d="M49.19,47.41H64.72v8h.22c2.17-3.88,7.45-8,15.34-8,16.39,0,19.42,10.2,19.42,23.47V98.94H83.51V74c0-5.71-.12-13.06-8.42-13.06s-9.72,6.21-9.72,12.65v25.4H49.19V47.41ZM40,31.79a8.42,8.42,0,1,1-8.42-8.42A8.43,8.43,0,0,1,40,31.79ZM23.18,47.41H40V98.94H23.18V47.41Z"/>
+              </svg>
+              LinkedIn
+            </a>
+            
+			<a class="pill" href="tel:+918121380696">
+ 			 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+       			viewBox="0 0 24 24" fill="none" stroke="orangered" stroke-width="2"
+       			stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    			<path d="M22 16.92v3a2 2 0 0 1-2.18 2
+             19.79 19.79 0 0 1-8.63-3.07
+             19.5 19.5 0 0 1-6-6
+             19.79 19.79 0 0 1-3.07-8.67
+             A2 2 0 0 1 4.1 2h3
+             a2 2 0 0 1 2 1.72
+             13 13 0 0 0 .7 2.81
+             2 2 0 0 1-.45 2.11L8.09 9.91
+             a16 16 0 0 0 6 6l1.27-1.27
+             a2 2 0 0 1 2.11-.45
+             13 13 0 0 0 2.81.7
+             2 2 0 0 1 1.72 2z"/>
+ 			 </svg>
+  				Phone
+			</a>
+		</div>
+
+        <footer>
+          <div class="footer-inner">
+            <div>
+              © 2022 – Robotspace India · Scoobylabs Robotics Pvt. Ltd.
+            </div>
+            <div class="footer-links">
+              <a href="#">Privacy policy</a>
+              <a href="#">Terms of service</a>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </section>
+  </main>
+</body>
+
+</html>
