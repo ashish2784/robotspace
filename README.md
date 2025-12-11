@@ -1,6 +1,3 @@
-# Robotspace website clone – Documentation & Developer Guide
-
-
 
 
 ---
