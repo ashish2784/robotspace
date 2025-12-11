@@ -49,7 +49,6 @@
     </div>
 	<br>
 
-    </section>
 
     <!-- Gallery -->
 <section class="section" id="gallery">
@@ -65,4 +64,6 @@
         </div>
       </div>
     </section>
+
+  </section>
 

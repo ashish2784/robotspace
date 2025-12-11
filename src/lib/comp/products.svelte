@@ -1,6 +1,6 @@
 
     <!-- Products -->
-    <section class="bg-col" style="background: #000; min-height: 100vh;width: 100%;">
+
     <section class="section" id="products">
       <div class="wrapper">
         <div class="section-header">
@@ -103,4 +103,4 @@ Scoot provides solutions for manufacturing, pharmaceuticals, hospitality, wareho
         </div>
       </div>
     </section>
-  </section>
+ 

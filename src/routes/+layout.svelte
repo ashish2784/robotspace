@@ -14,7 +14,7 @@
 
 
 <main>
-  <section class="Contact" >
+  <section class="Contact" id="form">
 		<form class="form" action="">
 			<h2>Talk to us!</h2>
 			<p >We'd Love to Hear from You! At Robotspace, we're dedicated to open communication and building strong connections with our community, clients, and partners. Whether you have a question, a partnership proposal, or simply want to learn more about our innovative robotics and automation solutions, we're here to help. Feel free to reach out to us !</p>
@@ -28,13 +28,14 @@
 		</form>
 	</section>
 
-	<br>
+<br>
 
     <section class="section" id="socials">
       <div class="wrapper">
         <div class="section-header">
           <span class="pill-label"></span>
-          <div class="section-visual"><img src="/images/sonK02g1HhQpYMD96kBANE5hEYY.png" alt="Socials"></div>
+          <div class="section-visual">
+            <a href="#top"><img src="/images/sonK02g1HhQpYMD96kBANE5hEYY.png" alt="Socials"></a></div>
           <p class="section-subtitle">
             With a core mission to streamline manufacturing complexities, Robotspace continues to be a driving force in making the manufacturing process simpler, more efficient, and innovative.
           </p>
@@ -93,6 +94,7 @@
               </svg>
               LinkedIn
             </a>
+
 			<a class="pill" href="tel:+918121380696">
  			 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
        			viewBox="0 0 24 24" fill="none" stroke="orangered" stroke-width="2"

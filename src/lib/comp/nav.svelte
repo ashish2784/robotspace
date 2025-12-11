@@ -12,8 +12,8 @@
       </div>
       <nav class="nav-links">
         <a href="#products" class="nav-primary">Products</a>
-        <a href="#about">About</a>
-        <a href="#careers">we're hiring</a>
+        <a href="#about" class="nav-primary">About</a>
+        <a href="#careers"class="nav-primary">we're hiring</a>
         <div class="nav-cta">
           <a href="#demo" class="btn btn-accent">Book a demo</a>
         </div>

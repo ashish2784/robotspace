@@ -1,9 +1,10 @@
     <section class="section" id="process">
       <div class="wrapper">
         <div class="section-header">
-          <span class="pill-label">Process</span>
-          <h2 class="section-title">A different way to build Automation</h2>
-          <p class="section-subtitle">
+          <span class="pill-labelp">Process</span>
+          <h2 class="section-title">A Different Approach,
+a New Method of Manufacturing</h2>
+ <p class="section-subtitle">
             We design solutions around your production flow rather than forcing your plant to fit
             a rigid template.
           </p>

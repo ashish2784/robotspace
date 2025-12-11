@@ -10,7 +10,7 @@
 
           <div class="hero-actions">
             <a href="#products" class="btn btn-accent">Explore products</a>
-            <a href="#about" class="btn btn-ghost">Learn more</a>
+            <a href="#about" class="btn btn-accent">Learn more</a>
           </div>
 
           <div class="hero-metrics">

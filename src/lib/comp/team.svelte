@@ -8,7 +8,7 @@
  <section class="section" id="team">
       <div class="wrapper">
         <div class="section-header">
-          <span class="pill-label">Team</span>
+          <span class="pill-labelp">Team</span>
           <h2 class="section-title">People behind Robotspace</h2>
           <p class="section-subtitle">
             Together, we are more than just a team; we are a collective force dedicated to simplifying manufacturing through robotics and automation. With a shared passion for innovation and a commitment to excellence, we are propelling Robotspace and our customers toward a future where manufacturing is streamlined, efficient, and empowered.
