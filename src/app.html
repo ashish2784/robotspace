@@ -6,10 +6,7 @@
   <title>Robotspace – Simplified Manufacturing Automation</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Optional Google Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+ 
     %sveltekit.head%
 
 
@@ -38,7 +35,7 @@
 
     body {
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background: radial-gradient(circle at top, #171a35 0, #02030a 45%, #000 100%);
+      background: radial-gradient(circle at top, #0b0b0b 0,#0b0b0b 45%, #000 100%);
       color: var(--text-main);
       line-height: 1.6;
     }
@@ -88,7 +85,6 @@
 	  width: 140px;
 	  height: auto;
 	}
-
 
     .nav-links {
       display: flex;
@@ -170,12 +166,11 @@
   background-repeat: no-repeat;
 }
 
-.hero-inner {
-  position: relative;
-  z-index: 1;
-}
+
 
     .hero-inner {
+      position: relative;
+  z-index: 1;
       display: grid;
       grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
       gap: 48px;
@@ -405,10 +400,12 @@
       background: rgba(7, 9, 25, 0.96);
       border-radius: var(--radius-xl);
       border: 1px solid var(--border-soft);
-      padding: 22px 22px 24px;
+      padding: 50px 22px 24px;
       position: relative;
       overflow: hidden;
     }
+
+ 
 
     .product-tag {
       text-transform: uppercase;
@@ -458,17 +455,6 @@
       align-items: center;
       font-size: 0.75rem;
       color: var(--text-muted);
-    }
-
-    .product-thumbnail {
-      position: absolute;
-      right: -40px;
-      bottom: -40px;
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 20% 0, #ffffff, #b4b9d6, #4c5278);
-      opacity: 0.18;
     }
 
     /* Process */
@@ -829,9 +815,10 @@ textarea.input {
 
 <body>
 	  <div style="display: contents">%sveltekit.body%</div>
+
   <header>
 
-    <div class="wrapper nav">
+   <!-- <div class="wrapper nav">
       <div class="nav-left">
         <div class="logo">
 			<a href="#"><img src="/images/sonK02g1HhQpYMD96kBANE5hEYY.png" alt="Robotspace Logo" ></a>
@@ -849,13 +836,13 @@ textarea.input {
 
       </nav>
       <button class="mobile-menu">☰</button>
-    </div>
+    </div>   -->
   </header> 
   
 
-  <main>
+ <!-- <main>
 
-    <!-- Hero -->
+    <!-- Hero 
     <section class="hero" id="top">
       <div class="wrapper hero-inner">
         <div>
@@ -886,10 +873,10 @@ textarea.input {
              
         </div>
       </div>
-    </section>
+    </section>                   -->
 
     <!-- Trusted by -->
-    <section class="section">
+    <!--<section class="section">
       <div class="wrapper">
         <div class="section-header">
           <h2 class="section-title">Trusted by manufacturing leaders</h2>
@@ -908,10 +895,11 @@ textarea.input {
           <div class="trusted-logo"><img src="/images/mI8qTECrxBNTlGpSFHDaOZGK1SI.png" alt="Client 6"></div>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <!-- Vision / About -->
-    <section class="section" id="about">
+   <!-- <section class="section" id="about">
+
       <div class="wrapper two-column">
         <div class="vision-text">
           <span class="pill-label">Vision</span>
@@ -952,10 +940,12 @@ textarea.input {
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
+
+
 
     <!-- Products -->
-    <section class="section" id="products">
+   <!-- <section class="section" id="products">
       <div class="wrapper">
         <div class="section-header">
           <span class="pill-label">Products</span>
@@ -967,10 +957,13 @@ textarea.input {
         </div>
 
         <div class="products-grid">
-          <!-- Legato -->
+
+
+            
           <article class="product-card">
             <div class="product-tag">Robotic platform</div>
             <h3 class="product-name">Legato</h3>
+            <img src="/images/Okss1DWieT9KgONlcLCn0Yp6Ohw.jpg" alt="Legato Robotic Platform" style="width:100%; border-radius:12px; margin-bottom:12px;">
             <p class="product-subtitle">A single platform for line automation</p>
             <p class="product-body">
               Configure robotic assembly, inspection, packing, palletizing, pick-and-place and
@@ -982,15 +975,15 @@ textarea.input {
             </div>
             <div class="product-footer">
               <span>Controls · Gantry · Grippers · Pneumatics</span>
-              <span>Learn more →</span>
             </div>
             <div class="product-thumbnail"></div>
           </article>
 
-          <!-- iFactory AI -->
+            
           <article class="product-card">
             <div class="product-tag">Manufacturing OS</div>
             <h3 class="product-name">iFactory&nbsp;AI</h3>
+            <img src="/images/FnFfWwES0ClV1uBZ4oq3kVLM.jpg" alt="iFactory AI Manufacturing OS" style="width:100%; border-radius:12px; margin-bottom:12px;">
             <p class="product-subtitle">Run your plant from anywhere</p>
             <p class="product-body">
               Real-time visibility, planning and coordination across machines, operators,
@@ -1002,15 +995,16 @@ textarea.input {
             </div>
             <div class="product-footer">
               <span>Monitoring · MES · Scheduling · Quality</span>
-              <span>Learn more →</span>
+              
             </div>
             <div class="product-thumbnail"></div>
           </article>
 
-          <!-- Scoot -->
+             
           <article class="product-card">
             <div class="product-tag">Autonomous mobile robots</div>
             <h3 class="product-name">Scoot</h3>
+            <img src="images/8i9hPaITmicnje8a2seoU7KInYc.png" alt="Scoot Autonomous Mobile Robot" style="width:100%; border-radius:12px; margin-bottom:12px;">
             <p class="product-subtitle">Material movement on autopilot</p>
             <p class="product-body">
               LIDAR-based SLAM AMRs for pallets, bins and carts. Scoot ties into machines,
@@ -1022,15 +1016,16 @@ textarea.input {
             </div>
             <div class="product-footer">
               <span>Manufacturing · Pharma · Warehousing</span>
-              <span>Learn more →</span>
+              
             </div>
             <div class="product-thumbnail"></div>
           </article>
 
-          <!-- ioWare -->
+              
           <article class="product-card">
             <div class="product-tag">Industrial IoT hardware</div>
             <h3 class="product-name">ioWare</h3>
+            <img src="/images/UsP0N6UTQ1HnzgY2j4d7spO38c.png" alt="ioWare Industrial IoT Hardware" style="width:100%; border-radius:12px; margin-bottom:12px;">
             <p class="product-subtitle">Gateway &amp; smart HMI</p>
             <p class="product-body">
               Connect sensors, legacy machines and PLCs to the cloud or iFactory AI with a
@@ -1043,16 +1038,16 @@ textarea.input {
             </div>
             <div class="product-footer">
               <span>Modbus · MQTT · Ethernet · Wi-Fi</span>
-              <span>Learn more →</span>
+              
             </div>
             <div class="product-thumbnail"></div>
           </article>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <!-- Process -->
-    <section class="section">
+  <!--  <section class="section">
       <div class="wrapper">
         <div class="section-header">
           <span class="pill-label">Process</span>
@@ -1091,12 +1086,12 @@ textarea.input {
       </div>
     </section>
 
-	<center>
+	<!--<center>
 	<img src="/images/xSc4vewz9I6Me4wQDXYEmlE.jpg" alt="Robotspace Automation" style="  width:90%; margin-top:-40px; margin-bottom:40px; border-radius:12px; object-fit:cover; box-shadow:0 10px 30px rgba(2,6,23,0.12)">
 		</center>
 
     <!-- Team -->
-    <section class="section">
+   <!-- <section class="section">
       <div class="wrapper">
         <div class="section-header">
           <span class="pill-label">Team</span>
@@ -1141,7 +1136,7 @@ textarea.input {
     </section>
 
     <!-- Careers -->
-    <section class="section" id="careers">
+   <!-- <section class="section" id="careers">
     <div class="wrapper">
         <div class="section-header">
           <span class="pill-label">Careers</span>
@@ -1192,7 +1187,7 @@ textarea.input {
 	<br>
 
 	<!-- Contact -->
-	<section class="Contact" >
+	<!-- <section class="Contact" >
 		<form class="form" action="">
 			<h2>Talk to us!</h2>
 			<p >We'd Love to Hear from You! At Robotspace, we're dedicated to open communication and building strong connections with our community, clients, and partners. Whether you have a question, a partnership proposal, or simply want to learn more about our innovative robotics and automation solutions, we're here to help. Feel free to reach out to us !</p>
@@ -1204,11 +1199,11 @@ textarea.input {
 
 			<button class="btn btn-accent" type="submit" style="margin-top:12px; width:100%; height:100%">Send Message</button>
 		</form>
-	</section>
+	</section>-->
 
 	<br>
 
-    <section class="section" id="socials">
+   <!-- <section class="section" id="socials">
       <div class="wrapper">
         <div class="section-header">
           <span class="pill-label"></span>
@@ -1304,8 +1299,8 @@ textarea.input {
           </div>
         </footer>
       </div>
-    </section>
-  </main>
+    </section>-->
+</main> 
 </body>
 
 </html>

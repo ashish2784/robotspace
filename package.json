@@ -1,9 +1,11 @@
+
+
 {
 	"name": "robot",
 	"private": true,
 	"version": "0.0.1",
 	"type": "module",
-	"scripts": {
+	"scripts": {x
 		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
@@ -11,7 +13,9 @@
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
 	},
+
 	"devDependencies": {
+    "@sveltejs/adapter-static": "^3.0.10",
 		"@sveltejs/adapter-auto": "^7.0.0",
 		"@sveltejs/kit": "^2.48.5",
 		"@sveltejs/vite-plugin-svelte": "^6.2.1",
