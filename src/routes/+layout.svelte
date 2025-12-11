@@ -1,5 +1,5 @@
 <script lang="ts">
-	import favicon from '$lib/assets/favicon.png';
+	import favicon from '$lib/assets/rs logo.jpeg';
 
 	let { children } = $props();
 </script>
@@ -9,6 +9,7 @@
 </svelte:head>
 
 {@render children()}
+
 
 
 
@@ -116,7 +117,7 @@
         <footer>
           <div class="footer-inner">
             <div>
-              © 2022 – Robotspace India · Scoobylabs Robotics Pvt. Ltd.
+              © 2022 - Robotspace India · Scoobylabs Robotics Pvt. Ltd.
             </div>
             <div class="footer-links">
               <a href="#top">Privacy policy</a>

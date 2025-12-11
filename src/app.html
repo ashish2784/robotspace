@@ -11,6 +11,11 @@
 
 
   <style>
+    html {
+  scroll-behavior: smooth;
+}
+
+  
     :root {
       --bg: #070816;
       --bg-alt: #0c0e1f;
@@ -327,7 +332,7 @@
       width: 120px;
       height: 50px;
       border-radius: 999px;
-      background: rgba(7, 9, 27, 0.9);
+      background: rgb(13, 13, 13);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -338,6 +343,15 @@
   .trusted-logo img{
     object-fit: contain;
   }
+
+  #about.section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 10%;
+  width: 80%;
+  border-top: 2px solid rgba(235, 45, 45, 0.6);
+}
 
     /* Vision / Stats */
 
@@ -390,6 +404,13 @@
 
     /* Products */
 
+    .product-page {
+  background: #ffffff !important;
+}
+.product-card {
+  background: transparent;
+}
+
     .products-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -397,7 +418,7 @@
     }
 
     .product-card {
-      background: rgba(7, 9, 25, 0.96);
+      background: rgba(251, 251, 251, 0.96);
       border-radius: var(--radius-xl);
       border: 1px solid var(--border-soft);
       padding: 50px 22px 24px;
@@ -411,7 +432,7 @@
       text-transform: uppercase;
       letter-spacing: 0.2em;
       font-size: 0.76rem;
-      color: var(--accent);
+      color: var(--bg);
       margin-bottom: 6px;
     }
 
@@ -419,17 +440,19 @@
       font-size: 1.3rem;
       font-weight: 600;
       margin-bottom: 4px;
+      color: var(--bg);
     }
 
     .product-subtitle {
-      font-size: 0.85rem;
-      color: var(--text-muted);
+      font-size: 1.3rem;
+      color: var(--bg);
       margin-bottom: 10px;
     }
 
     .product-body {
+      font-size: 0.76rem;
+      color: var(--bg);
       font-size: 0.86rem;
-      color: var(--text-muted);
       margin-bottom: 18px;
     }
 
@@ -454,7 +477,7 @@
       justify-content: space-between;
       align-items: center;
       font-size: 0.75rem;
-      color: var(--text-muted);
+      color: var(--bg);
     }
 
     /* Process */
@@ -724,9 +747,35 @@ textarea.input {
   top: 0;
   left: 10%;
   width: 80%;
-  border-top: 1px solid rgba(235, 45, 45, 0.6);
+  border-top: 2px solid rgba(235, 45, 45, 0.6);
 }
 	
+#products.section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 10%;
+  width: 80%;
+  border-top: 2px solid rgba(235, 45, 45, 0.6);
+}
+
+#process.section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 10%;
+  width: 80%;
+  border-top: 2px solid rgba(235, 45, 45, 0.6);
+}
+
+#careers.section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 10%;
+  width: 80%;
+  border-top: 2px solid rgba(235, 45, 45, 0.6);
+}
 
     /* Responsive */
 
