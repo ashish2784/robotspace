@@ -67,3 +67,63 @@
 
   </section>
 
+<style>
+    #careers{
+      background: #fff;
+      color: #000;
+    }
+    .careers-card {
+      background: rgba(253, 253, 253, 0.96);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-soft);
+      padding: 22px 20px 24px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr);
+      gap: 22px;
+      align-items: center;
+    }
+
+    .careers-card p {
+      color: var(--bg);
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      background: rgba(13, 18, 40, 0.95);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 1999px;
+      background: #45dd7a;
+    }
+
+	.photo { 
+		display:flex; 
+		gap:16px; 
+		justify-content:center; 
+		align-items:flex-start; 
+		flex-wrap:wrap; 
+	}
+
+	.photo img {
+  width: 30%;
+  min-width: 200px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  animation:cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}	
+  </style>
+
+
