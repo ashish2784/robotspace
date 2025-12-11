@@ -46,3 +46,53 @@
       </div>
     </section>
     <br>
+
+<style>
+      .two-column {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 36px;
+      align-items: flex-start;
+    }
+
+    .vision-text p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 10px;
+    }
+
+    .pill-label {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 5px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border-soft);
+      background: rgba(6, 10, 28, 0.9);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+    }
+
+    .vision-stats {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .vision-stat {
+      padding: 14px 16px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      background: rgba(7, 9, 25, 0.9);
+      font-size: 0.9rem;
+    }
+
+    .vision-stat strong {
+      display: block;
+      color: var(--accent);
+      font-size: 1.2rem;
+      margin-bottom: 4px;
+    }
+
+</style>
