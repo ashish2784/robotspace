@@ -48,3 +48,55 @@
         </div>
       </div>
     </section>
+
+<style>
+   .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .team-card {
+      background: rgba(7, 9, 25, 0.96);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-soft);
+      padding: 18px 18px 20px;
+      text-align: left;
+    }
+
+    .avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: none;
+  margin-bottom: 12px;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+    .team-name {
+      font-weight: 600;
+      font-size: 0.98rem;
+      margin-bottom: 2px;
+    }
+
+    .team-role {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.7rem;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .team-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+</style>
