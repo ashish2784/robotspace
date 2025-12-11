@@ -41,3 +41,44 @@ a New Method of Manufacturing</h2>
 	<center>
 	<img src="/images/xSc4vewz9I6Me4wQDXYEmlE.jpg" alt="Robotspace Automation" style="  width:90%; margin-top:-40px; margin-bottom:40px; border-radius:12px; object-fit:cover; box-shadow:0 10px 30px rgba(2,6,23,0.12)">
 		</center>
+
+
+    <style>
+
+     .pill-labelp {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 5px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border-soft);
+      background: rgba(251, 251, 251, 0.9);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--bg);
+    }
+
+    .process-card {
+      background: rgb(11, 11, 11);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-soft);
+      padding: 26px 24px;
+      display: grid;
+      gap: 18px;
+    }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    .process-step-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 4px;
+    }
+    </style>
